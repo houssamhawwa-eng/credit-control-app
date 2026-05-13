@@ -39,8 +39,8 @@ if uploaded_file:
                  color='Action Status', title=f"Top 10 Exposure in {selected_channel}")
     st.plotly_chart(fig, use_container_width=True)
 
-    # 3. جدول البيانات الذكي
+# 3. جدول البيانات الذكي
     st.subheader("📋 Detailed Analysis & Risk Segmentation")
-    st.dataframe(df_analysis.style.applymap(lambda x: 'background-color: #ffcccc' if x == '🔴 Block' else 
+    st.dataframe(df_analysis.style.map(lambda x: 'background-color: #ffcccc' if x == '🔴 Block' else 
                                             ('background-color: #ffffcc' if x == '🟡 Watchlist' else ''), 
                                             subset=['Action Status']))
